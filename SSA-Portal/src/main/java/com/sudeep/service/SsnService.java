@@ -10,6 +10,6 @@ public interface SsnService {
 
 	public UserSsn saveUser(UserSsn user);
 
-	public Boolean findUser(Long id);
+	public Boolean findSsn(Long ssnId);
 
 }

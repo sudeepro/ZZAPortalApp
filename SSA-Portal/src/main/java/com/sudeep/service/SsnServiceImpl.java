@@ -16,7 +16,7 @@ import com.sudeep.repository.StateRepository;
 public class SsnServiceImpl implements SsnService {
 
 	@Autowired
-	private SsnRepository userRepository;
+	private SsnRepository ssnRepository;
 	@Autowired
 	private StateRepository stateRepository;
 
@@ -31,7 +31,7 @@ public class SsnServiceImpl implements SsnService {
 			 * String.valueOf(theAreaCode) + "-" + RandomStringUtils.randomNumeric(2) + "-"
 			 * + RandomStringUtils.randomNumeric(4);
 			 */
-			userRepository.save(entity);
+			ssnRepository.save(entity);
 		}
 		return user;
 	}
@@ -56,14 +56,13 @@ public class SsnServiceImpl implements SsnService {
 	}
 
 	@Override
-	public Boolean findUser(Long id) {
-		Optional<SsnEntity> entity = userRepository.findById(id);
-		if (entity.isPresent()) {
+	public Boolean findSsn(Long ssnId) {
+		Optional<SsnEntity> ssn = ssnRepository.findById(ssnId);
+		if (ssn.isPresent()) {
 			return true;
 		} else {
 			return false;
 		}
 
 	}
-
 }

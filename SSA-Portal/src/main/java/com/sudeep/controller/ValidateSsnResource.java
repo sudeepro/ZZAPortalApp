@@ -14,12 +14,14 @@ public class ValidateSsnResource {
 	private SsnServiceImpl service;
 
 	@GetMapping("/userSsn/{id}")
-	public ResponseEntity<?> retrieveBySsnId(@PathVariable("id") Long id, Model model) {
-		if (service.findUser(id) == false)
+	public ResponseEntity<?> retrieveBySsnId(@PathVariable("id") Long ssnId, Model model) {
+		if (service.findSsn(ssnId) == false) {
 
-			throw new SsnNotFoundException("SSN" + id);
+			throw new SsnNotFoundException("SSN" + ssnId);
+		} else {
 
-		return new ResponseEntity<>("Your SSN is Invalid", HttpStatus.OK);
+			return new ResponseEntity<>("Your SSN is Invalid", HttpStatus.OK);
+		}
+
 	}
-
 }

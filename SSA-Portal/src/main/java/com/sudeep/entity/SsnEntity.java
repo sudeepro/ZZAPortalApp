@@ -15,14 +15,8 @@ import lombok.Data;
 @Table(name = "SSN_MASTER")
 @Data
 public class SsnEntity {
-
 	@Id
-	/*
-	 * @GenericGenerator(name = "SSN_ID_SEQ", strategy =
-	 * "com.sudeep.generators.SsnGenerators")
-	 */
-	@SequenceGenerator(name = "SSN_ID_SEQ", sequenceName = "SSN_ID_SEQ", allocationSize = 1)
-	@GeneratedValue(generator = "SSN_ID_SEQ")
+	@GeneratedValue
 	@Column(name = "SSN_ID")
 	private Long ssnId;
 	@Column(name = "FIRST_NAME")
